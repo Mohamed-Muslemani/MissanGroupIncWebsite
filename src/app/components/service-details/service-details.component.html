@@ -1,26 +1,17 @@
-
 <app-header></app-header>
 <div class="container-fluid service-details">
-  <!-- Title Bar -->
-  <div class="service-header">
-    <h1 class="service-title text-white text-center">{{ selectedService?.title }}</h1>
-  </div>
-
-  <!-- Image and Description -->
-  <div class="row mt-4 justify-content-center">
-    <div class="selected-service-img col-12 text-center">
-      <img [src]="selectedService?.image" [alt]="selectedService?.title" class="img-fluid rounded service-hero-img">
+  <div class="container mt-5" *ngIf="selectedService">
+    <div class="header">
+      <h1>{{ selectedService.title }}</h1>
     </div>
 
-    <div class="col-lg-8 col-md-12 col-12">
-      <div class="service-description-box">
-        <p class="service-description">{{ selectedService?.description }}</p>
-      </div>
+    <div class="project-container">
+      <img [src]="selectedService.image" class="card-img-top" alt="Service Image" />
+      <p>{{ selectedService.description }}</p>
     </div>
   </div>
 
-
-<h3 class="mt-5">More Services</h3>
+  <h3 class="mt-5">More Services</h3>
   <div class="row d-flex mt-4 moreService">
     <div *ngFor="let service of filteredServices; let i = index; let last = last">
       <div [ngClass]="{'flex-row-reverse': i % 2 !== 0}" class="row align-items-center">
@@ -45,3 +36,4 @@
 </div>
 
 <app-footer></app-footer>
+
